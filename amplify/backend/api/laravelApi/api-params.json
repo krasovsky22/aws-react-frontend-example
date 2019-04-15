@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/api",
+            "lambdaFunction": "LaravelBackend",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "laravelApi",
+    "apiName": "laravelApi",
+    "functionArns": [
+        {
+            "lambdaFunction": "LaravelBackend"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "awsreactfrontendexam-20190415125220-authRole",
+        "unAuthRoleName": "awsreactfrontendexam-20190415125220-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "LaravelBackend",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
