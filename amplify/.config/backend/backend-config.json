@@ -3,7 +3,7 @@
     "cloud9-laravel-LaravelBackendDev-1L8DXJ06L1F8Q": {
       "service": "Lambda",
       "providerPlugin": "awscloudformation",
-      "build": true,
+      "build": false,
       "dependsOn": []
     }
   },
