@@ -1,8 +1,22 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+import Amplify, { API } from "aws-amplify";
+import aws_exports from "./aws-exports";
+
+Amplify.configure(aws_exports);
+
+const apiName = "laravelApi";
+const path = "/api/products";
 
 class App extends Component {
+  componentDidMount() {
+    API.get(apiName, path).then(response => {
+      console.log(response);
+    });
+  }
+
   render() {
     return (
       <div className="App">
