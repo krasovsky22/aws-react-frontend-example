@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Form, Modal, Button } from "semantic-ui-react";
 import { API } from "aws-amplify";
 
-const apiName = "laravelApi";
+const apiName = "laravel-bref-demo-1";
 const apiPath = "/api/products";
 
 class AddProductModal extends Component {
