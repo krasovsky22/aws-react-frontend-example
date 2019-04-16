@@ -5,7 +5,7 @@ import _ from "lodash";
 //import EditItemModal from "./editItem.js";
 import AddProductModal from "./AddProductsModal";
 
-const apiName = "laravelApi";
+const apiName = "laravelApiNew";
 const apiPath = "/api/products";
 
 class ProductDashboard extends Component {

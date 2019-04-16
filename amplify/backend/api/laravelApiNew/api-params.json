@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/api",
+            "lambdaFunction": "api",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "laravelApiNew",
+    "apiName": "laravelApiNew",
+    "functionArns": [
+        {
+            "lambdaFunction": "api"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "awsreactfrontendexam-20190415185817-authRole",
+        "unAuthRoleName": "awsreactfrontendexam-20190415185817-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "api",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
