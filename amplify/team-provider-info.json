@@ -1,0 +1,14 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "awsreactfrontendexam-20190417075159-authRole",
+            "UnauthRoleArn": "arn:aws:iam::481162063872:role/awsreactfrontendexam-20190417075159-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::481162063872:role/awsreactfrontendexam-20190417075159-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "awsreactfrontendexam-20190417075159-deployment",
+            "UnauthRoleName": "awsreactfrontendexam-20190417075159-unauthRole",
+            "StackName": "awsreactfrontendexam-20190417075159",
+            "StackId": "arn:aws:cloudformation:us-east-2:481162063872:stack/awsreactfrontendexam-20190417075159/5e65d310-6120-11e9-8da2-063ebf2048ea"
+        }
+    }
+}
