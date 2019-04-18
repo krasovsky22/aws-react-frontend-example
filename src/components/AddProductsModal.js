@@ -5,25 +5,50 @@ import { API } from "aws-amplify";
 const apiName = "laravel-bref-demo-1";
 const apiPath = "/api/products";
 
+const defaultState = {
+  name: "",
+  detail: "",
+  id: "",
+  modalOpen: false
+};
+
 class AddProductModal extends Component {
-  state = {};
+  state = defaultState;
+
+  hasProduct = () => this.state.id !== "";
 
   handleChange = (event, { name, value }) => {
-    console.log(event, name, value);
     this.setState({ [name]: value });
   };
 
   handleSubmit = async event => {
-    const { name, detail } = this.state;
-    console.log(this.state);
+    const { name, detail, id } = this.state;
 
-    let newApiPath = `${apiPath}?name=${name}&detail=${detail}`;
-
-    await API.post(apiName, newApiPath);
+    if (id !== "") {
+      //edit action
+      const newApiPath = `${apiPath}/${id}?name=${name}&detail=${detail}`;
+      await API.put(apiName, newApiPath);
+    } else {
+      //save action
+      const newApiPath = `${apiPath}?name=${name}&detail=${detail}`;
+      await API.post(apiName, newApiPath);
+    }
 
     this.props.refreshItemsMethod();
     this.handleClose();
   };
+
+  componentWillReceiveProps(nextProps) {
+    if (this.state.modalOpen === false && nextProps.product) {
+      const { id, name, detail } = nextProps.product;
+      this.setState({
+        modalOpen: true,
+        id,
+        name,
+        detail
+      });
+    }
+  }
 
   handleOpen = () =>
     this.setState({
@@ -32,7 +57,7 @@ class AddProductModal extends Component {
       detail: ""
     });
 
-  handleClose = () => this.setState({ modalOpen: false });
+  handleClose = () => this.setState(defaultState);
 
   render() {
     return (
@@ -42,7 +67,9 @@ class AddProductModal extends Component {
         open={this.state.modalOpen}
         onClose={this.handleClose}
       >
-        <Modal.Header>Add Product</Modal.Header>
+        <Modal.Header>
+          {this.hasProduct() ? "Edit" : "Add"} Product
+        </Modal.Header>
         <Modal.Content>
           <Form onSubmit={this.handleSubmit}>
             <Form.Group unstackable widths={2}>
